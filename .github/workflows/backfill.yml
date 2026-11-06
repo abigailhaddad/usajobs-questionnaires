@@ -49,6 +49,13 @@ jobs:
       - name: List what is already published
         run: python scripts/published_ids.py
 
+      # Pick up questionnaires announced since the last run. It re-reads the two newest announcement months and
+      # saves any new ids in data/id_inventory_updates/. If the announcement dataset is unreachable the run
+      # carries on with the inventory it already has.
+      - name: Refresh the id inventory
+        run: |
+          python scripts/inventory.py --update || echo "::notice::Could not refresh the id inventory, so this run uses the one already in the repo."
+
       # Never let a failure here skip the later steps: the health check and the state commit must run.
       - name: Fetch a batch
         id: fetch
@@ -86,7 +93,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add state/attempts.jsonl
-          git diff --cached --quiet || (git commit -m "Record fetch attempts [skip ci]" && git push)
+          # new ids found today, if any (the folder only exists once there are some)
+          if [ -d data/id_inventory_updates ]; then git add data/id_inventory_updates; fi
+          git diff --cached --quiet || (git commit -m "Record fetch attempts and new ids [skip ci]" && git push)
 
       # Turn every kind of trouble into a red run.
       - name: Fail loudly
