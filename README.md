@@ -19,7 +19,7 @@ planned (see HANDOFF.md for why).
   collected yet, about 84 days at the polite budget.
 - **Fetching:** works. The first pilot failed because the fetcher read the page while it was still
   loading; that is fixed (HANDOFF.md, "The fetch method"). A 300-id batch returned 300 questionnaires.
-  It is built and has a passing publish dry run, not uploaded. The daily workflow is not scheduled.
+  A 50-request test on a GitHub runner published a batch to Hugging Face, and the daily workflow is scheduled.
 
 ## Layout
 

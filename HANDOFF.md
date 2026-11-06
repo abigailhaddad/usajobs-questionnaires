@@ -21,7 +21,7 @@ wants to go back, `scripts/backfill.py --years 2023` fetches one year, and the s
 | 2025 release (52,227 questionnaires, 949,370 questions) | Published at `abigailhaddad/usajobs-questionnaires`, emails removed |
 | Id inventory | Done: 2,337,708 ids from the announcement dataset |
 | Fetching 2025-26 pages | Works (see "The fetch method") |
-| Backfill workflow | Written, not scheduled |
+| Backfill workflow | Scheduled daily at 06:17 UTC; a 50-request test on a GitHub runner published a batch |
 
 ## The fetch method
 
@@ -104,8 +104,8 @@ Every place that names the current owner: `src/usajq/config.py` (dataset id, ann
 
 ## The workflow
 
-`.github/workflows/backfill.yml` is run by hand (`workflow_dispatch`) and has a commented-out
-schedule. A run: tests, list published ids from Hugging Face, fetch a batch, build the batch tables,
+`.github/workflows/backfill.yml` runs daily at 06:17 UTC and can also be started by hand
+(`workflow_dispatch`). A run: tests, list published ids from Hugging Face, fetch a batch, build the batch tables,
 run the health check, publish one commit if healthy, commit the state file. It always reaches the
 health check and the state commit, and ends red on any of: exit 3 (refused), exit 4 (nothing came
 back), a failed health check, or no `HF_TOKEN`.
@@ -128,9 +128,9 @@ The 2025 release is published (one commit, `data/<table>/part-2025-release.parqu
 4. `python scripts/publish_to_hf.py --release build/batch --tag batch-<date> --no-card` (dry run),
    then the same with `--upload`.
 
-The first batch (300 questionnaires, `build/batch-2026-11-06/out`) is built and has a passing dry run.
-It has not been uploaded. The GitHub repo for this project does not exist yet; the card still says
-"(to be created)".
+The first batches: 300 questionnaires built locally (not uploaded), then a 50-request test on a GitHub
+runner that published `batch-2026-11-06T2109` (50 questionnaires, 865 questions) to Hugging Face. The
+repo is public at github.com/abigailhaddad/usajobs-questionnaires.
 
 Email addresses are replaced with `[email removed]` before parsing (`src/usajq/redact.py`), so
 `text_sha256` is the hash of the text after removal.
