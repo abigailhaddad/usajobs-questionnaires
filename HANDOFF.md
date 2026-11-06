@@ -19,7 +19,7 @@ wants to go back, `scripts/backfill.py --years 2023` fetches one year, and the s
 |---|---|
 | Parser (USA Staffing pages to questions) | Done, tested, checked against 49,868 real pages |
 | 2025 release (52,227 questionnaires, 949,370 questions) | Published at `abigailhaddad/usajobs-questionnaires`, emails removed |
-| Id inventory | Done: 2,337,708 ids from the announcement dataset |
+| Id inventory | 2,337,708 ids from the announcement dataset, refreshed daily with the new ones |
 | Fetching 2025-26 pages | Works (see "The fetch method") |
 | Backfill workflow | Scheduled daily at 06:17 UTC; a 50-request test on a GitHub runner published a batch |
 
@@ -71,7 +71,17 @@ after 8 attempts if none has worked (exit code 4).
 
 ## What the inventory is
 
-`data/id_inventory.parquet`: one row per questionnaire found in the text of an announcement in
+**It refreshes daily.** The announcement dataset grows every day, so each daily run first calls
+`python scripts/inventory.py --update`. That re-reads only the two newest monthly files (about 110 MB over
+HTTPS, a few seconds), and writes any ids the inventory does not have yet into a small file of their own,
+`data/id_inventory_updates/<UTC date and time>.parquet`, which the workflow commits with the state file.
+Nothing already in the inventory is rewritten, so a day's commit adds kilobytes, not the 7 MB base again.
+`scripts/backfill.py` reads the base plus every update file, and newest ids come first. If the announcement
+dataset can't be reached, the step logs a notice and the run carries on with the inventory it has.
+`python scripts/verify_inventory_update.py` re-checks the update path against the base (network needed):
+it drops the newest two months from a copy, runs the update, and compares.
+
+`data/id_inventory.parquet` (the base): one row per questionnaire found in the text of an announcement in
 `abigailhaddad/usajobs-scraping`. Columns: portal, questionnaire_id, first_seen_month,
 n_announcements, control_number, url (Monster only). `data/inventory_by_year.csv` has counts by year.
 `data/announcement_link_rates.parquet` has, by month, how many announcements there were and how
@@ -86,8 +96,11 @@ Gaps:
   have. Pre-2025 Monster questionnaires are mostly not recoverable this way.
 - **Other systems.** Agency-run portals and systems like Workday are not covered.
 - **Announcements with no questionnaire link** are not in the inventory at all.
-- Rebuild it with `python scripts/inventory.py` then `--combine` (about 25 minutes, reads over HTTPS,
-  downloads nothing large).
+- **A control number is one of several** when an id appears in several announcements in the same month.
+  The base build and the update pick one arbitrarily, and `n_announcements` counts them.
+- Rebuild the whole base with `python scripts/inventory.py` then `--combine` (about 25 minutes, reads over
+  HTTPS, downloads nothing large). `--combine` also deletes `data/id_inventory_updates/`, because the new
+  base already contains those ids.
 
 ## Secrets and variables (GitHub Actions)
 

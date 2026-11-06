@@ -15,7 +15,7 @@ planned (see HANDOFF.md for why).
 - **Parser:** done and checked. See `evidence/` and the dataset card.
 - **2025 release:** published.
 - **Inventory:** 2.3 million questionnaire ids found in announcement text, 2017 to 2026, in
-  `data/id_inventory.parquet`. In scope: about 251,000 USA Staffing ids from 2025 and 2026 that are not
+  `data/id_inventory.parquet`, plus a small daily update file for ids announced since. In scope: about 251,000 USA Staffing ids from 2025 and 2026 that are not
   collected yet, about 84 days at the polite budget.
 - **Fetching:** works. The first pilot failed because the fetcher read the page while it was still
   loading; that is fixed (HANDOFF.md, "The fetch method"). A 300-id batch returned 300 questionnaires.
@@ -27,13 +27,14 @@ planned (see HANDOFF.md for why).
                       fetch.py              polite fetching, state file, refusal handling
                       health.py             post-run checks
                       config.py             every setting, each overridable by an UQ_* variable
-    scripts/          inventory.py          list questionnaire ids from the announcement dataset (reads over HTTPS)
+    scripts/          inventory.py          list questionnaire ids from the announcement dataset (reads over HTTPS);
+                                            --update adds the new ones daily
                       backfill.py           fetch a bounded batch
                       build_release.py      raw pages -> questionnaires, questions, sections (Parquet)
                       make_card.py          write the dataset card from the built tables
                       publish_to_hf.py      one Hugging Face commit, dry run by default
                       verify_parse.py       check the parser against the raw pages, a second way
-    data/             id_inventory.parquet, announcement_link_rates.parquet, inventory_by_year.csv,
+    data/             id_inventory.parquet, id_inventory_updates/, announcement_link_rates.parquet, inventory_by_year.csv,
                       collected_ids_2025_release.csv
     state/            attempts.jsonl        every fetch attempt, one line each
     evidence/         the parser's spot check and verification results

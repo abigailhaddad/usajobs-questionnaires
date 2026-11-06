@@ -5,7 +5,7 @@
     python3 scripts/backfill.py --limit 2500                                               # one day's batch
     python3 scripts/backfill.py --dry-run                                                  # show what it would do
 
-Picks ids from data/id_inventory.parquet (announcements first seen in config.MIN_YEAR, 2025, or later,
+Picks ids from data/id_inventory.parquet plus data/id_inventory_updates/*.parquet (announcements first seen in config.MIN_YEAR, 2025, or later,
 unless --years says otherwise), newest first, skips any id the state file already
 settled and any id listed in --have (a file with one "portal,id" per line, or a folder of
 usastaffing_<id>.txt / monster_<id>.txt files). Stops at once on any refusal (exit code 3).
@@ -21,6 +21,7 @@ import duckdb
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from usajq import config  # noqa: E402
 from usajq import fetch  # noqa: E402
+from usajq.inventory_merge import inventory_files  # noqa: E402
 
 
 def have_ids(path):
@@ -43,8 +44,9 @@ def have_ids(path):
 
 def pick(args, state):
     con = duckdb.connect()
+    files = ", ".join(f"'{f}'" for f in inventory_files(config.DATA_DIR))  # the base plus the daily update files
     inv = con.execute(
-        f"select questionnaire_id, portal, url, first_seen_month from '{config.DATA_DIR}/id_inventory.parquet' "
+        f"select questionnaire_id, portal, url, first_seen_month from read_parquet([{files}]) "
         "where questionnaire_id is not null and questionnaire_id <> ''"
     ).fetchdf()
     have = have_ids(args.have)
