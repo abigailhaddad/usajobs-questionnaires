@@ -20,6 +20,7 @@ import pyarrow.parquet as pq
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from usajq.ids import portal_and_id  # noqa: E402
+from usajq.redact import remove_emails  # noqa: E402
 from usajq.parse_usastaffing import parse, text_hash  # noqa: E402
 
 OPTION_T = pa.list_(pa.struct([("letter", pa.string()), ("text", pa.string())]))
@@ -121,6 +122,9 @@ def main():
     for i, p in enumerate(files):
         portal, qid = p.stem.split("_", 1)
         text = p.read_text(encoding="utf-8", errors="replace")
+        text, n_removed = remove_emails(text)
+        stats["emails_removed"] += n_removed
+        stats["pages_with_emails_removed"] += 1 if n_removed else 0
         info = links.get((portal, qid), {})
         base = {
             "questionnaire_id": qid, "portal": portal,

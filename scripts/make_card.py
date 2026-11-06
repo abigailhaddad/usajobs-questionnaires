@@ -49,6 +49,9 @@ def main():
     e_files, p_files, s_files, tot_text = one(
         f"select count(*) filter (where regexp_matches(raw_text,'{EMAIL}')), count(*) filter (where regexp_matches(raw_text,'{PHONE}')), "
         f"count(*) filter (where regexp_matches(raw_text,'{SSN}')), count(*) from {Q} where raw_text is not null")
+    n_removed_pages, n_removed = one(
+        f"select count(*) filter (where raw_text like '%[email removed]%'), "
+        f"coalesce(sum(len(regexp_extract_all(raw_text, '\\[email removed\\]'))), 0) from {Q} where raw_text is not null")
     emails = {}
     for (e,) in allr(f"select unnest(regexp_extract_all(raw_text,'{EMAIL}')) from {Q} where raw_text is not null"):
         emails[e.lower()] = emails.get(e.lower(), 0) + 1
@@ -175,12 +178,12 @@ alone is on thousands). Do not count questions as if each were unique.
 
 ## Names, emails and phone numbers
 
-Questionnaires are written for applicants and carry little personal data. In the {tot_text:,}
-saved pages with text: {e_files:,} contain an email address ({len(emails)} distinct addresses, {len(name_like)} look like a person's
-name), {p_files:,} contain a phone number ({len(phones)} distinct numbers, mostly help desks and agency
-offices), and {s_files} contain a Social Security number pattern. Staff contacts that appear are agency
-points of contact written into the questions, published as the portal shows them. I did not remove
-them. Tell me if one should come out.
+Questionnaires are written for applicants and carry little personal data. Email addresses were removed
+from the text before it was parsed: each one is replaced with `[email removed]` (about {n_removed:,}
+addresses across {n_removed_pages:,} pages, mostly agency help desks and points of contact). That means
+`text_sha256` is the hash of the text after removal, not of the page as the portal served it. Phone numbers
+were not removed: {p_files:,} of the {tot_text:,} saved pages with text contain one ({len(phones)} distinct
+numbers, mostly help desks and agency offices). {s_files} pages contain a Social Security number pattern.
 
 ## How it was checked
 
