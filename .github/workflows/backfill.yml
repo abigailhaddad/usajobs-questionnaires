@@ -1,18 +1,18 @@
 name: Backfill questionnaires
 
-# NOT SCHEDULED YET, but the fetch method works: a 300-id batch returned 300 questionnaires (HANDOFF.md,
-# "The fetch method"). Scope is 2025 to present (config.MIN_YEAR). Run it by hand once, check that the
-# run is green and a batch lands on Hugging Face, then uncomment the `schedule` block. The daily budget
-# (3,000 requests, about 3 hours 20 minutes of fetching) takes about 84 days to clear the 2025 and 2026
-# backlog; after that a day's new announcements are about 630 ids.
+# Runs daily at 06:17 UTC. The fetch method works: a 50-request test on a GitHub runner returned a batch
+# that landed on Hugging Face, and a 300-id local batch returned 300 questionnaires (HANDOFF.md, "The fetch
+# method"). Scope is 2025 to present (config.MIN_YEAR). The daily budget (3,000 requests, about 3 hours
+# 20 minutes of fetching) takes about 84 days to clear the 2025 and 2026 backlog; after that a day's new
+# announcements are about 630 ids. The run stops at the first block (403/429) and ends red.
 on:
   workflow_dispatch:
     inputs:
       limit:
         description: "Most requests this run (the daily budget still applies)"
         default: "500"
-  # schedule:
-  #   - cron: "17 6 * * *"
+  schedule:
+    - cron: "17 6 * * *"
 
 permissions:
   contents: write   # to commit state/attempts.jsonl
