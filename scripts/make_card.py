@@ -207,7 +207,7 @@ before reuse: https://apply.usastaffing.gov and https://jobs.monstergovt.com. Th
 
 ## Code
 
-The parser, the checks and the backfill workflow: https://github.com/abigailhaddad/usajobs-questionnaires (to be created).
+The parser, the checks and the backfill workflow: https://github.com/abigailhaddad/usajobs-questionnaires
 """
     out = R / "README.md"
     out.write_text(card)
