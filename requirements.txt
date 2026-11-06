@@ -1,0 +1,7 @@
+duckdb
+pandas
+pyarrow
+huggingface_hub
+requests
+playwright
+pytest

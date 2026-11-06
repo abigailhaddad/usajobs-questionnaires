@@ -1,0 +1,399 @@
+file,section,question_number,question_type,n_options,options_lettered,parsed_question_text,parsed_options,parsed_trailing,raw_block
+usastaffing_12774680.txt,Eligibilities,6,single_choice,2,True,"Are you a current or former land management agency employee, AND you:
+served under a time-limited (temporary or term) appointment for a period totaling at least 24 months without a break in service of more than 2 years, AND
+performed at an acceptable level throughout the service period(s), AND
+are not separated from the land management agency OR separated within the last two years for reasons othe",A. Yes | B. No,,"6. Are you a current or former land management agency employee, AND you:
+served under a time-limited (temporary or term) appointment for a period totaling at least 24 months without a break in service of more than 2 years, AND
+performed at an acceptable level throughout the service period(s), AND
+are not separated from the land management agency OR separated within the last two years for reasons other than misconduct or performance?
+
+If you answer yes to this question, you are required to submit supporting documentation of your claim including a copy of your last or most recent SF-50 Notification of Personnel Action(s) reflecting all periods of creditable service and fully successful performance appraisal(s) (or equivalent documentation) from the same time period.
+
+Failure to provide supporting documentation will result in a rating of ineligible. For more information, please see https://chcoc.gov/content/eligibility-land-management-employees-time-limited-appointment-competitive-service
+ A. Yes
+ B. No"
+usastaffing_12761395.txt,Preferences,1,single_choice,2,True,Are you retired from the Federal civilian service or are you in a phased retirement and receiving an annuity?,A. Yes | B. No,,"1. Are you retired from the Federal civilian service or are you in a phased retirement and receiving an annuity?
+ A. Yes
+ B. No"
+usastaffing_12780280.txt,Assessment 1,10,single_choice,5,True,Ensure merchandising standards are met using the Uniform Retail Meat Identity Standard.,"A. I know little or nothing about this. | B. I have had study or training in this. | C. I have used my knowledge or ability, but I have been closely supervised. | D. I have used my knowledge or ability on my own, under normal supervision. | E. I am consulted by other journeypersons in difficult situations, or I am called on to do unusually difficult jobs.",,"10. Ensure merchandising standards are met using the Uniform Retail Meat Identity Standard.
+
+ A. I know little or nothing about this.
+ B. I have had study or training in this.
+ C. I have used my knowledge or ability, but I have been closely supervised.
+ D. I have used my knowledge or ability on my own, under normal supervision.
+ E. I am consulted by other journeypersons in difficult situations, or I am called on to do unusually difficult jobs."
+usastaffing_12798271.txt,Assessment 1,4,single_choice,5,True,"Operate software systems (e.g., Microsoft Excel, Power Point, Word, Project, SharePoint) to analyze data from multiple projects.","A. I have not had education, training, or experience in performing this task. | B. I have had education or training in how to perform this task, but have not yet performed it on the job. | C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures. | D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee. | E. I am considered an expert in performing this task. I have supervised performance of",,"4. Operate software systems (e.g., Microsoft Excel, Power Point, Word, Project, SharePoint) to analyze data from multiple projects.
+ A. I have not had education, training, or experience in performing this task.
+ B. I have had education or training in how to perform this task, but have not yet performed it on the job.
+ C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures.
+ D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee.
+ E. I am considered an expert in performing this task. I have supervised performance of this task or am normally the person who is consulted by other workers to assist or train them in doing this task because of my expertise."
+usastaffing_12752962.txt,Assessment 1,21,single_choice,5,True,Influences managers and officials to understand and implement findings and recommendations for organizational improvement or program effectiveness.,"A. I have not had education, training, or experience in performing this task. | B. I have had education or training in how to perform this task, but have not yet performed it on the job. | C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures. | D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee. | E. I am considered an expert in performing this task. I have supervised performance of","The following statements pertain to the Reasoning Competency (identifies rules, principles, or relationships that explain facts, data, or other information; analyzes information and makes correct inferences or draws accurate conclusions).
+Select the one statement that most accurately describes your ","21. Influences managers and officials to understand and implement findings and recommendations for organizational improvement or program effectiveness.
+
+ A. I have not had education, training, or experience in performing this task.
+ B. I have had education or training in how to perform this task, but have not yet performed it on the job.
+ C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures.
+ D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee.
+ E. I am considered an expert in performing this task. I have supervised performance of this task or am normally the person who is consulted by other workers to assist or train them in doing this task because of my expertise.
+The following statements pertain to the Reasoning Competency (identifies rules, principles, or relationships that explain facts, data, or other information; analyzes information and makes correct inferences or draws accurate conclusions).
+Select the one statement that most accurately describes your training and experience carrying out each task using the scale provided."
+usastaffing_12755234.txt,Assessment 1,9,single_choice,5,True,"Calibrate test equipment (e.g., electronic, mechanical, and electro-mechanical) to ensure operations run smoothly.","A. I have not had education, training, or experience in performing this task. | B. I have had education or training in how to perform this task, but have not yet performed it on the job. | C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures. | D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee. | E. I am considered an expert in performing this task. I have supervised performance of",,"9. Calibrate test equipment (e.g., electronic, mechanical, and electro-mechanical) to ensure operations run smoothly.
+ A. I have not had education, training, or experience in performing this task.
+ B. I have had education or training in how to perform this task, but have not yet performed it on the job.
+ C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures.
+ D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee.
+ E. I am considered an expert in performing this task. I have supervised performance of this task or am normally the person who is consulted by other workers to assist or train them in doing this task because of my expertise."
+usastaffing_12814548.txt,Eligibilities,15,single_choice,2,False,"Are you a veteran who separated from active duty under honorable conditions AND you:
+recently separated (within the past 3 years); OR,
+are a disabled veteran; OR,
+served on active duty during a war, campaign or expedition; OR,
+received an Armed Forces Service Medal?
+If eligible, submit a copy of your latest Certificate of Release or Discharge from Active Duty, DD-214 (copy indicating character of ",A. Yes | B. No,,"15.
+Are you a veteran who separated from active duty under honorable conditions AND you:
+recently separated (within the past 3 years); OR,
+are a disabled veteran; OR,
+served on active duty during a war, campaign or expedition; OR,
+received an Armed Forces Service Medal?
+If eligible, submit a copy of your latest Certificate of Release or Discharge from Active Duty, DD-214 (copy indicating character of service) or other proof of your service which includes character of service. If claiming disability preference, provide the disability letter from the Department of Veterans Affairs or Armed Service and the Application for 10-Point Veteran Preference, Standard Form 15.
+
+For more information, review USAJOBS Veterans resources.
+
+To verify your eligibility, you must submit a copy of your latest Certificate of Release or Discharge from Active Duty, DD-214 (copy indicating character of service) or other proof of your service which includes character of service. If claiming disability preference, you must also submit the disability letter from the Department of Veterans Affairs or Armed Service and the Application for 10-Point Veteran Preference, Standard Form 15.
+ Yes
+ No"
+usastaffing_12790538.txt,Assessment 1,26,single_choice,5,True,Unloads food/tray delivery carts.,"A. I know little or nothing about this. | B. I have had study or training in this. | C. I have used my knowledge or ability, but I have been closely supervised. | D. I have used my knowledge or ability on my own, under normal supervision. | E. I am consulted by other journeypersons in difficult situations, or I am called on to do unusually difficult jobs.",,"26. Unloads food/tray delivery carts.
+ A. I know little or nothing about this.
+ B. I have had study or training in this.
+ C. I have used my knowledge or ability, but I have been closely supervised.
+ D. I have used my knowledge or ability on my own, under normal supervision.
+ E. I am consulted by other journeypersons in difficult situations, or I am called on to do unusually difficult jobs."
+usastaffing_12756796.txt,Assessment 1,7,single_choice,7,True,Which activities have you performed pertaining to the prevention of immigration fraud?,"A. Analyzed anti-fraud and law enforcement check policies, procedures, and systems. | B. Assisted Immigration officers and Specialists in data collection. | C. Generated reports and documented trends in immigration fraud. | D. Accessed data systems to extract information pertinent to background check protocols. | E. Participated in inter-agency and/or intra-agency task forces to enhance U.S. national security and the integrity of the legal immigration system. | F. Detected red-flags pertaining to immigration fraud while reviewing case files. | G. None of the above.",Select “Yes” or “No” to the following question(s).,"7. Which activities have you performed pertaining to the prevention of immigration fraud?
+ A. Analyzed anti-fraud and law enforcement check policies, procedures, and systems.
+ B. Assisted Immigration officers and Specialists in data collection.
+ C. Generated reports and documented trends in immigration fraud.
+ D. Accessed data systems to extract information pertinent to background check protocols.
+ E. Participated in inter-agency and/or intra-agency task forces to enhance U.S. national security and the integrity of the legal immigration system.
+ F. Detected red-flags pertaining to immigration fraud while reviewing case files.
+ G. None of the above.
+Select “Yes” or “No” to the following question(s)."
+usastaffing_12778417.txt,Eligibilities,6,single_choice,2,True,"Are you a Veteran (as defined by 5 USC 2108)? If claiming yes, a copy of the DD 214 (member 4 or service 2 copy) or equivalent must be uploaded with your application to validate this claim. For additional information, please copy and paste this URL: https://publicfileshare.chra.army.mil/Applicants/NAF%20Applicant%20Information%20Kit.pdf",A. Yes | B. No,,"6. Are you a Veteran (as defined by 5 USC 2108)? If claiming yes, a copy of the DD 214 (member 4 or service 2 copy) or equivalent must be uploaded with your application to validate this claim. For additional information, please copy and paste this URL: https://publicfileshare.chra.army.mil/Applicants/NAF%20Applicant%20Information%20Kit.pdf
+ A. Yes
+ B. No"
+usastaffing_12793809.txt,Preferences,5,single_choice,2,True,"Did you voluntarily separate from federal service and receive Voluntary Separation Incentive Pay (VSIP)?
+NOTE: If your response is yes, you must provide a copy of your SF 50 or Leave and Earnings statement showing receipt of payment as part of your application submission. If you become reemployed by the federal government within 5 years of separating from federal service and have received a VSIP, ",A. Yes | B. No,,"5. Did you voluntarily separate from federal service and receive Voluntary Separation Incentive Pay (VSIP)?
+
+NOTE: If your response is yes, you must provide a copy of your SF 50 or Leave and Earnings statement showing receipt of payment as part of your application submission. If you become reemployed by the federal government within 5 years of separating from federal service and have received a VSIP, you will be required to repay the full VSIP amount paid to you.
+ A. Yes
+ B. No"
+usastaffing_12754016.txt,Eligibilities,18,single_choice,2,True,"Are you a veteran who separated from active duty under honorable conditions AND you:
+recently separated (within the past 3 years); OR,
+are a disabled veteran; OR,
+served on active duty during a war, campaign or expedition; OR,
+received an Armed Forces Service Medal?
+If eligible, submit a copy of your latest Certificate of Release or Discharge from Active Duty, DD-214 (copy indicating character of ",A. Yes | B. No,,"18. Are you a veteran who separated from active duty under honorable conditions AND you:
+recently separated (within the past 3 years); OR,
+are a disabled veteran; OR,
+served on active duty during a war, campaign or expedition; OR,
+received an Armed Forces Service Medal?
+If eligible, submit a copy of your latest Certificate of Release or Discharge from Active Duty, DD-214 (copy indicating character of service) or other proof of your service which includes character of service. If claiming disability preference, provide the disability letter from the Department of Veterans Affairs or Armed Service and the Application for 10-Point Veteran Preference, Standard Form 15.
+
+For more information, review USAJOBS Veterans resources.
+
+To verify your eligibility, you must submit a copy of your latest Certificate of Release or Discharge from Active Duty, DD-214 (copy indicating character of service) or other proof of your service which includes character of service. If claiming disability preference, you must also submit the disability letter from the Department of Veterans Affairs or Armed Service and the Application for 10-Point Veteran Preference, Standard Form 15.
+ A. Yes
+ B. No"
+usastaffing_12788706.txt,Eligibilities,9,single_choice,2,True,"Former Federal Employee Eligible for Reinstatement (Lateral)
+To claim Reinstatement eligibility as a Former Federal Employee, please confirm you were you formerly employed as a federal civilian on a permanent competitive appointment, but are not currently a permanent competitive federal employee; AND that, while serving on that appointment, you met one of the following:
+You held the same grade lev",A. Yes | B. No,,"9. Former Federal Employee Eligible for Reinstatement (Lateral)
+
+To claim Reinstatement eligibility as a Former Federal Employee, please confirm you were you formerly employed as a federal civilian on a permanent competitive appointment, but are not currently a permanent competitive federal employee; AND that, while serving on that appointment, you met one of the following: 
+
+You held the same grade level with the same or higher promotion potential as the position being advertised.
+(Trades Positions): You held a position at the same or higher rate of pay as the position being advertised. 
+
+To verify your eligibility, you must submit a copy of your most recent Notification of Personnel Action, Standard Form 50 (SF-50), or equivalent personnel action, reflecting your permanent, competitive status reflecting one of the criteria listed in the below bullets: 
+
+You are a former Federal employee who previously attained Career status (identified on your last Notification of Personnel Action, Standard Form 50 (SF-50) in Block 24 as ""Tenure I"" and in Block 34 as ""Competitive Service""; OR
+You are a former Federal employee with veterans' preference who previously attained Career-Conditional status (identified on your last SF-50 in Block 24 as ""Tenure II"" and in Block 34 as ""Competitive Service""; OR
+You are a former Federal employee without veterans' preference who separated from Government service within the past three years and previously attained Career-Conditional status (identified o"
+usastaffing_12767740.txt,Assessment 1,12,single_choice,5,True,Assist in implementing Crime Prevention through Environmental Design (CPTED) program activities.,"A. I have not had education, training, or experience in performing this task. | B. I have had education or training in how to perform this task, but have not yet performed it on the job. | C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures. | D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee. | E. I am considered an expert in performing this task. I have supervised performance of","CERTIFICATION: I certify that, to the best of my knowledge and belief, all of the information included in this questionnaire is true, correct, and provided in good faith. I understand that if I make an intentional false statement, or commit deception or fraud in this application and its supporting m","12. Assist in implementing Crime Prevention through Environmental Design (CPTED) program activities.
+ A. I have not had education, training, or experience in performing this task.
+ B. I have had education or training in how to perform this task, but have not yet performed it on the job.
+ C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures.
+ D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee.
+ E. I am considered an expert in performing this task. I have supervised performance of this task or am normally the person who is consulted by other workers to assist or train them in doing this task because of my expertise.
+CERTIFICATION: I certify that, to the best of my knowledge and belief, all of the information included in this questionnaire is true, correct, and provided in good faith. I understand that if I make an intentional false statement, or commit deception or fraud in this application and its supporting materials, or in any document or interview associated with the examination process, I may be fined or imprisoned (18 U.S.C. 1001); my eligibilities may be cancelled, I may be denied an appointment, or I may be removed and debarred from Federal service (5 C.F.R. part 731). I understand that any information I give may be investigated. I understand that responding "
+usastaffing_12751252.txt,Preferences,2,single_choice,2,True,"Are you currently a Federal Employee? If so, a copy of your SF 50 is required.",A. Yes | B. No,Requirements,"2. Are you currently a Federal Employee? If so, a copy of your SF 50 is required. 
+
+ A. Yes
+ B. No
+Requirements"
+usastaffing_12756223.txt,Eligibilities,4,single_choice,2,True,"AF Internal Candidate - Are you a current AF or Space Force career or career-conditional permanent, competitive status Federal Civil Service employee, including those on LWOP?   If you indicate ""Yes"" for this question, you must submit a copy of your most recent career/career conditional SF-50 (Notification of Personnel Action) AND a copy of an SF-50 that reflects your highest grade held on a perma",A. Yes | B. No,,"4. AF Internal Candidate - Are you a current AF or Space Force career or career-conditional permanent, competitive status Federal Civil Service employee, including those on LWOP?   If you indicate ""Yes"" for this question, you must submit a copy of your most recent career/career conditional SF-50 (Notification of Personnel Action) AND a copy of an SF-50 that reflects your highest grade held on a permanent basis.
+ A. Yes
+ B. No"
+usastaffing_12782855.txt,Assessment 1,16,single_choice,5,True,Brief managers regarding outcome of program analysis or reviews.,"A. I have not had education, training, or experience in performing this task. | B. I have had education or training in how to perform this task, but have not yet performed it on the job. | C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures. | D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee. | E. I am considered an expert in performing this task. I have supervised performance of",,"16. Brief managers regarding outcome of program analysis or reviews.
+ A. I have not had education, training, or experience in performing this task.
+ B. I have had education or training in how to perform this task, but have not yet performed it on the job.
+ C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures.
+ D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee.
+ E. I am considered an expert in performing this task. I have supervised performance of this task or am normally the person who is consulted by other workers to assist or train them in doing this task because of my expertise."
+usastaffing_12781784.txt,Eligibilities,11,single_choice,2,True,"I am currently on retained grade based on receiving a written RIF notification letter of a change to lower grade, or a notification letter of a classification downgrade dated within the last 2 years. I am exercising my preference eligibility to DoD positions within my local commuting area.
+NOTE 1: If you indicate ""yes"" for this statement, you must submit a copy of the Retained Grade PPP Self-Certi",A. Yes | B. No,,"11. I am currently on retained grade based on receiving a written RIF notification letter of a change to lower grade, or a notification letter of a classification downgrade dated within the last 2 years. I am exercising my preference eligibility to DoD positions within my local commuting area.
+
+NOTE 1: If you indicate ""yes"" for this statement, you must submit a copy of the Retained Grade PPP Self-Certification Checklist found here and copies of the appropriate documentation, such as a RIF change-to-lower-grade notice, and an SF-50 reflecting your RIF change to lower grade.
+
+NOTE 2: By using this eligibility, you certify that you have not accepted permanent Federal employment at your retained grade, nor have you accepted or declined a PPP job offer.
+ A. Yes
+ B. No"
+usastaffing_12755036.txt,Preferences,1,single_choice,5,True,"Which of the following items describes your current or recent (within the last five years) political appointee service?
+If you responded yes to any of the items below, you will need to include a SF-50 specifying your prior service.","A. Yes, I am considered a political appointee as described under 5 U.S.C. sections 5312 through 5316. | B. Yes, I am considered a Non-career Senior Executive Service (SES), Limited Term SES, Limited Emergency SES Executive Branch employee. | C. Yes, I am considered a political Schedule A, Schedule C, or appointee who served in a political capacity under agency-specific authority in the Executive Branch. | D. Yes, I am considered a political appointee in the Executive Branch (as described in a., b. or c above) in a covered position in an agency having an interchange agreement with OPM, which al","Your resume must be submitted in English and include the following information for each job listed:
+Job title Duties (be as detailed as possible)
+Month & year start/end dates (e.g. June 2007 to April 2008)
+Full-time or part-time status (include hours worked per week)
+Series and Grade, if applicable,","1. Which of the following items describes your current or recent (within the last five years) political appointee service?
+
+If you responded yes to any of the items below, you will need to include a SF-50 specifying your prior service.
+ A. Yes, I am considered a political appointee as described under 5 U.S.C. sections 5312 through 5316.
+ B. Yes, I am considered a Non-career Senior Executive Service (SES), Limited Term SES, Limited Emergency SES Executive Branch employee.
+ C. Yes, I am considered a political Schedule A, Schedule C, or appointee who served in a political capacity under agency-specific authority in the Executive Branch.
+ D. Yes, I am considered a political appointee in the Executive Branch (as described in a., b. or c above) in a covered position in an agency having an interchange agreement with OPM, which allows movement from the agency's system to the competitive civil service.
+ E. None of the above. I am not considered a current or recent (last 5 years) political appointee as described above in items a, b, c, or d.
+Your resume must be submitted in English and include the following information for each job listed:
+Job title Duties (be as detailed as possible)
+Month & year start/end dates (e.g. June 2007 to April 2008)
+Full-time or part-time status (include hours worked per week)
+Series and Grade, if applicable, for all Federal positions you have held
+Please be aware that your answers will be verified against information provided on your resume. Be sure that yo"
+usastaffing_12769403.txt,Eligibilities,3,single_choice,2,True,"Are you a former employee of the Department of Veterans Affairs who:
+• formerly occupied a career or career conditional position at the VA within the preceding two years before applying for reemployment at VA; AND,
+• voluntarily departed such position, or was subject to a reduction in force, and had a satisfactory performance record while occupying such position; AND,
+• since departing VA has main",A. Yes | B. No,,"3. Are you a former employee of the Department of Veterans Affairs who:
+
+• formerly occupied a career or career conditional position at the VA within the preceding two years before applying for reemployment at VA; AND,
+• voluntarily departed such position, or was subject to a reduction in force, and had a satisfactory performance record while occupying such position; AND,
+• since departing VA has maintained licensing requirements, related to the position, if any, and gained skills, knowledge, or other factors related to the position; AND,
+• possesses at least one year of specialized experience equivalent to the next lower grade level of the position sought?
+
+Appointment under this authority is exempt from competitive examining procedures and Veteran's preference.
+
+To verify your eligibility, you must provide a copy of your latest Notification of Personnel Action, Standard Form 50 that demonstrates you meet the requirements outlined in P.L. 115-46, VA Choice and Quality Employment Act of 2017, section 204.
+ A. Yes
+ B. No"
+usastaffing_12756532.txt,Preferences,2,single_choice,5,True,"Which of the following items describes your current or recent (within the last five years) political appointee service?
+If you responded yes to any of the items below, you will need to include a SF-50 specifying your prior service.","A. Yes, I am considered a political appointee as described under 5 U.S.C. sections 5312 through 5316. | B. Yes, I am considered a Non-career Senior Executive Service (SES), Limited Term SES, Limited Emergency SES Executive Branch employee. | C. Yes, I am considered a political Schedule A, Schedule C, or appointee who served in a political capacity under agency-specific authority in the Executive Branch. | D. Yes, I am considered a political appointee in the Executive Branch (as described in a., b. or c above) in a covered position in an agency having an interchange agreement with OPM, which al",,"2. Which of the following items describes your current or recent (within the last five years) political appointee service?
+
+If you responded yes to any of the items below, you will need to include a SF-50 specifying your prior service.
+ A. Yes, I am considered a political appointee as described under 5 U.S.C. sections 5312 through 5316.
+ B. Yes, I am considered a Non-career Senior Executive Service (SES), Limited Term SES, Limited Emergency SES Executive Branch employee.
+ C. Yes, I am considered a political Schedule A, Schedule C, or appointee who served in a political capacity under agency-specific authority in the Executive Branch.
+ D. Yes, I am considered a political appointee in the Executive Branch (as described in a., b. or c above) in a covered position in an agency having an interchange agreement with OPM, which allows movement from the agency's system to the competitive civil service.
+ E. None of the above. I am not considered a current or recent (last 5 years) political appointee as described above in items a, b, c, or d."
+usastaffing_12791562.txt,Assessment 1,1,single_choice,2,True,Select the one statement that best describes the education that you possess that demonstrates your ability to perform the work of an School Counselor for the Bureau of Indian Education.,A. I successfully completed full course of study in a Master's degree in guidance & counseling or counseling psychology or closely related field. (Must submit copy of official transcripts) Note: You must attach a copy of your transcripts. | B. I HAVE NOT successfully completed full course of study in a Master's degree in guidance & counseling or counseling psychology or closely related field.,,"1. Select the one statement that best describes the education that you possess that demonstrates your ability to perform the work of an School Counselor for the Bureau of Indian Education.
+ A. I successfully completed full course of study in a Master's degree in guidance & counseling or counseling psychology or closely related field. (Must submit copy of official transcripts) Note: You must attach a copy of your transcripts.
+ B. I HAVE NOT successfully completed full course of study in a Master's degree in guidance & counseling or counseling psychology or closely related field."
+usastaffing_12782199.txt,Assessment 1,1,single_choice,2,True,"Have you successfully completed an undergraduate Degree that included or was supplemented by major study (at least 24 semester hours) in the fields appropriate to the position consistent with: (Note: General Psychology/Sociology course work is not qualifying.)
+For positions in Child Development Facilities: The education must have been in child development, early childhood education, home economics",A. Yes | B. No,,"1. Have you successfully completed an undergraduate Degree that included or was supplemented by major study (at least 24 semester hours) in the fields appropriate to the position consistent with: (Note: General Psychology/Sociology course work is not qualifying.)
+
+For positions in Child Development Facilities: The education must have been in child development, early childhood education, home economics (early childhood emphasis), elementary education, special education or other fields appropriate to the position to be filled such as related behavioral science.
+
+IN ADDITION TO THE EDUCATION, THE FOLLOWING EXPERIENCE REQUIREMENTS MUST BE MET:
+Teach children or other work that demonstrated the ability to perform the duties of the position
+Can select, train, and supervise childcare and preschool employees, family childcare providers, or other care-giving adults;
+Can develop and implement child development programs, including family day care programs, part-day preschool programs, and before and after school programs;
+Can plan and organize work, analyze problems to identify significant factors, gather pertinent data and recognize solutions; and
+Possess ample oral and communications skills and analytical writing skills, and can present ideas and proposals to a variety of audiences.
+ A. Yes
+ B. No"
+usastaffing_12754142.txt,Preferences,3,single_choice,4,True,"There is a time in grade (TIG) requirement for advancement to this position. Have you completed one year in a position at, above, or equivalent to the GS-13 level? Please indicate the appropriate response below:","A. No, I have not been a federal employee in the GS during the last 52 weeks OR I do not know my highest grade or equivalent. | B. Yes, I have held a position at, above or equivalent to the GS-13 in the federal service for at least 52 weeks (or will meet the TIG requirement within 30 days of the closing date of the announcement). | C. One or more of the eligibilities I am applying through is a special appointing authority for which time-in-grade is not applicable. Examples: new VRA appointment, Military Spouse, EO 12721, 30% or more disabled veteran, person with disability applying under the S",,"3. There is a time in grade (TIG) requirement for advancement to this position. Have you completed one year in a position at, above, or equivalent to the GS-13 level? Please indicate the appropriate response below:
+ A. No, I have not been a federal employee in the GS during the last 52 weeks OR I do not know my highest grade or equivalent.
+ B. Yes, I have held a position at, above or equivalent to the GS-13 in the federal service for at least 52 weeks (or will meet the TIG requirement within 30 days of the closing date of the announcement).
+ C. One or more of the eligibilities I am applying through is a special appointing authority for which time-in-grade is not applicable. Examples: new VRA appointment, Military Spouse, EO 12721, 30% or more disabled veteran, person with disability applying under the Schedule A authority, Family Member Preference for Overseas Employment, Peace Corps, VISTA,VEOA, etc. (SPECIAL NOTE: Current Federal employees applying under the VEOA must meet TIG.)
+ D. None of the above apply to me."
+usastaffing_12815204.txt,Eligibilities,3,single_choice,2,False,"Are you a current or former federal employee displaced from a position in a federal agency other than the agency hiring for this position?
+If yes, confirm:
+• you are located in the same local commuting area of the vacancy
+• your grade is equivalent to or above the grade level of the vacancy and
+• your last performance rating of record is at least fully successful or the equivalent.
+You will be req",A. Yes | B. No,,"3.
+Are you a current or former federal employee displaced from a position in a federal agency other than the agency hiring for this position?
+
+If yes, confirm:
+• you are located in the same local commuting area of the vacancy
+• your grade is equivalent to or above the grade level of the vacancy and
+• your last performance rating of record is at least fully successful or the equivalent.
+
+You will be required to submit supporting documentation to validate your claim of ICTAP eligibility such as a Reduction in Force (RIF) separation notice or a Proposed Removal/Separation notice and a copy of your latest Notification of Personnel Action, Standard Form 50.  For more information, review the USAJOBS Resource Center.
+ Yes
+ No"
+usastaffing_12792524.txt,Eligibilities,2,single_choice,2,True,"Reasonable Accommodations for taking the online assessments are provided on a case-by-case basis only to qualified individuals with a disability covered by the Rehabilitation Act of 1973, as amended.
+Do you have a disability (physical or mental) that you believe will interfere with completing the online assessments and require a Reasonable Accommodation?",A. Yes | B. No,,"2. Reasonable Accommodations for taking the online assessments are provided on a case-by-case basis only to qualified individuals with a disability covered by the Rehabilitation Act of 1973, as amended.
+
+Do you have a disability (physical or mental) that you believe will interfere with completing the online assessments and require a Reasonable Accommodation?
+
+ A. Yes
+ B. No"
+usastaffing_12758767.txt,Eligibilities,7,single_choice,2,True,"Are you the parent of a Veteran (as defined by 5 USC 2108) who was (1) permanently and totally disabled and (a) your spouse is totally and permanently disabled, or (b) you are unmarried or, if married, legally separated from your spouse? OR Are you the parent of a veteran was killed in action under honorable conditions while serving in the Armed Forces (as defined by 5 USC 2108)? If claiming yes, ",A. Yes | B. No,,"7. Are you the parent of a Veteran (as defined by 5 USC 2108) who was (1) permanently and totally disabled and (a) your spouse is totally and permanently disabled, or (b) you are unmarried or, if married, legally separated from your spouse? OR Are you the parent of a veteran was killed in action under honorable conditions while serving in the Armed Forces (as defined by 5 USC 2108)? If claiming yes, you will need to provide proof to validate this claim prior to a tentative job offer. For additional information, please copy and paste this URL: https://publicfileshare.chra.army.mil/Applicants/NAF%20Applicant%20Information%20Kit.pdf
+ A. Yes
+ B. No"
+usastaffing_12768306.txt,Preferences,5,single_choice,2,True,Are you proficient in recording medical history and treatment in ccSOAP (Chief Complaint Subjective Objective Assessment Plan)?,A. Yes | B. No,,"5. Are you proficient in recording medical history and treatment in ccSOAP (Chief Complaint Subjective Objective Assessment Plan)?
+ A. Yes
+ B. No"
+usastaffing_12796968.txt,Assessment 1,10,single_choice,5,True,"Develops and solidifies Memorandums and Agreements, educates, trains and supports mitigation and planning required to effectively execute emergency management resources and services resource allocation.","A. I have not had education, training, or experience in performing this task. | B. I have had education or training in how to perform this task, but have not yet performed it on the job. | C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures. | D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee. | E. I am considered an expert in performing this task. I have supervised performance of",,"10. Develops and solidifies Memorandums and Agreements, educates, trains and supports mitigation and planning required to effectively execute emergency management resources and services resource allocation.
+ A. I have not had education, training, or experience in performing this task.
+ B. I have had education or training in how to perform this task, but have not yet performed it on the job.
+ C. I have performed this task on the job. My work on this task was monitored closely by a supervisor or senior employee to ensure compliance with proper procedures.
+ D. I have performed this task as a regular part of a job. I have performed it independently and normally without review by a supervisor or senior employee.
+ E. I am considered an expert in performing this task. I have supervised performance of this task or am normally the person who is consulted by other workers to assist or train them in doing this task because of my expertise."
+usastaffing_12796731.txt,Eligibilities,8,single_choice,2,True,"Are you a current or former federal employee displaced from a position in a federal agency other than the Department of Defense?
+If yes, confirm:
+You are located in the same local commuting area of the vacancy AND
+You are applying to a position that is at (or below) the grade level of the position from which you were (or will be) separated AND
+You are applying to a position that does not have grea",A. Yes | B. No,,"8. Are you a current or former federal employee displaced from a position in a federal agency other than the Department of Defense?
+
+If yes, confirm:
+You are located in the same local commuting area of the vacancy AND
+You are applying to a position that is at (or below) the grade level of the position from which you were (or will be) separated AND
+You are applying to a position that does not have greater promotion potential than the position from which you have been (or will be) separated AND
+Your last performance rating of record is at least fully successful or equivalent.
+If you answer yes to this question, you are required to submit supporting documentation to validate your claim for interagency career transition assistance including 1) a copy of your agency notice, 2) a copy of your most recent performance appraisal, AND 3) a copy of your most recent SF-50 or notification of personnel action that includes position, grade level, and duty location.
+
+Failure to provide this documentation will result in a rating of ineligible. 
+ 
+For more information, review the USAJOBS Resource Center.
+ A. Yes
+ B. No"
+usastaffing_12795942.txt,Preferences,1,dropdown,0,True,"Where did you hear about this job? We know you saw this announcement on USAJOBS, but did you hear about it somewhere else first?
+Please tell us where you first heard about this job.",,"National Call to Maritime Service/Fleet Week
+Department of the Navy (DON) Agency website/internet
+Email from the Department of the Navy
+LinkedIn
+CareerBuilder.com
+Indeed.com
+Monster.com
+Facebook
+X (Formerly known as Twitter)
+USAJOBS website
+Job Supervisor
+A Navy/Marine Corps employee, not the positi","1. Where did you hear about this job? We know you saw this announcement on USAJOBS, but did you hear about it somewhere else first?
+
+Please tell us where you first heard about this job.
+--Select-- 
+--Select--
+National Call to Maritime Service/Fleet Week
+Department of the Navy (DON) Agency website/internet
+Email from the Department of the Navy
+LinkedIn
+CareerBuilder.com
+Indeed.com
+Monster.com
+Facebook
+X (Formerly known as Twitter)
+USAJOBS website
+Job Supervisor
+A Navy/Marine Corps employee, not the position supervisor
+Friend or Family Member, not a Navy/Marine Corps employee
+Contract employee
+College/University Career Placement Office
+College Alumni
+Employment Office
+Newspaper Advertisement
+Job Career Fair
+American Association of People with Disabilities
+National Association of Asian American Professionals
+2024 Federal Interagency Military Spouse Career Expo"
+usastaffing_12825396.txt,Assessment 1,3,free_text,0,True,"Please indicate your registration type (RDN or RD) and issue date.
+Please select the appropriate answer to each of the following questions based on your background and experience that demonstrates your ability to perform the duties of this position. When answering the questionnaire, remember that your experience and education are subject to verification by investigation.
+Select “Yes” or “No” to th",,,"3.
+Please indicate your registration type (RDN or RD) and issue date.
+
+
+
+Please select the appropriate answer to each of the following questions based on your background and experience that demonstrates your ability to perform the duties of this position. When answering the questionnaire, remember that your experience and education are subject to verification by investigation.
+
+
+Select “Yes” or “No” to the following question(s)."
+usastaffing_12755370.txt,Assessment 1,3,free_text,0,True,"Provide the following information regarding the academic institution(s) from which you received your RN education.
+Name of Academic Institution
+City and State
+Level of Education (diploma, ASN, BSN, MSN, etc.)
+Month and Year conferred (or expected completion date)",,,"3. Provide the following information regarding the academic institution(s) from which you received your RN education.
+
+Name of Academic Institution
+City and State
+Level of Education (diploma, ASN, BSN, MSN, etc.)
+Month and Year conferred (or expected completion date)"
+usastaffing_12795643.txt,Preferences,4,free_text,0,True,"How has a strong work ethic contributed to your professional, academic or personal achievements? Provide one or two specific examples, and explain how those qualities would enable you to serve effectively in this position. (limit 1,200 characters)",,,"4. How has a strong work ethic contributed to your professional, academic or personal achievements? Provide one or two specific examples, and explain how those qualities would enable you to serve effectively in this position. (limit 1,200 characters)"
+usastaffing_12796018.txt,Preferences,1,free_text,0,True,"How has your commitment to the Constitution and the founding principles of the United States inspired you to pursue this role within the Federal government? Provide a concrete example from professional, academic, or personal experience. (limit 1,200 characters)",,,"1. How has your commitment to the Constitution and the founding principles of the United States inspired you to pursue this role within the Federal government? Provide a concrete example from professional, academic, or personal experience. (limit 1,200 characters)"
+usastaffing_12785147.txt,Eligibilities,1,free_text,0,True,"1. Are you the spouse of a member of the armed forces serving on active duty?
+-OR-",,,"1. 1. Are you the spouse of a member of the armed forces serving on active duty?
+
+-OR-"
+usastaffing_12754245.txt,Preferences,1,dropdown,0,True,"Where did you hear about this job? We know you saw this announcement on USAJOBS, but did you hear about it somewhere else first?
+Please tell us where you first heard about this job.",,"National Call to Maritime Service/Fleet Week
+Department of the Navy (DON) Agency website/internet
+Email from the Department of the Navy
+LinkedIn
+CareerBuilder.com
+Indeed.com
+Monster.com
+Facebook
+X (Formerly known as Twitter)
+USAJOBS website
+Job Supervisor
+A Navy/Marine Corps employee, not the positi","1. Where did you hear about this job? We know you saw this announcement on USAJOBS, but did you hear about it somewhere else first?
+
+Please tell us where you first heard about this job.
+--Select-- 
+--Select--
+National Call to Maritime Service/Fleet Week
+Department of the Navy (DON) Agency website/internet
+Email from the Department of the Navy
+LinkedIn
+CareerBuilder.com
+Indeed.com
+Monster.com
+Facebook
+X (Formerly known as Twitter)
+USAJOBS website
+Job Supervisor
+A Navy/Marine Corps employee, not the position supervisor
+Friend or Family Member, not a Navy/Marine Corps employee
+Contract employee
+College/University Career Placement Office
+College Alumni
+Employment Office
+Newspaper Advertisement
+Job Career Fair
+American Association of People with Disabilities
+National Association of Asian American Professionals
+2024 Federal Interagency Military Spouse Career Expo"
+usastaffing_12829176.txt,Assessment 1,3,free_text,0,True,"Provide the following information regarding the academic institution from which you received your LPN education or other details to support your response.
+Name of Institution
+City and State
+Level of Education (diploma, ASN, BSN, MSN, etc.)
+Month and Year conferred",,,"3.
+Provide the following information regarding the academic institution from which you received your LPN education or other details to support your response.
+
+Name of Institution
+City and State
+Level of Education (diploma, ASN, BSN, MSN, etc.)
+Month and Year conferred"
+usastaffing_12771102.txt,Preferences,1,dropdown,0,True,Select the lowest grade you are willing to accept for this position.,,"11
+12
+13","1. Select the lowest grade you are willing to accept for this position.
+--Select-- 
+--Select--
+11
+12
+13"
+usastaffing_12753865.txt,Assessment 1,3,free_text,0,True,"Provide the following information regarding the academic institution(s) from which you received your RN education.
+Name of Academic Institution
+City and State
+Level of Education (diploma, ASN, BSN, MSN, etc.)
+Month and Year conferred (or expected completion date)",,,"3. Provide the following information regarding the academic institution(s) from which you received your RN education.
+
+Name of Academic Institution
+City and State
+Level of Education (diploma, ASN, BSN, MSN, etc.)
+Month and Year conferred (or expected completion date)"

@@ -1,0 +1,98 @@
+name: Backfill questionnaires
+
+# NOT SCHEDULED YET. The pilot (see HANDOFF.md) must show that the fetch method works before this
+# runs on a timer. Run it by hand first. To schedule it, uncomment the `schedule` block.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Most requests this run (the daily budget still applies)"
+        default: "500"
+  # schedule:
+  #   - cron: "17 6 * * *"
+
+permissions:
+  contents: write   # to commit state/attempts.jsonl
+
+concurrency:
+  group: backfill-questionnaires
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      UQ_HF_DATASET: ${{ vars.UQ_HF_DATASET || 'abigailhaddad/usajobs-questionnaires' }}
+      UQ_MAX_REQUESTS_PER_DAY: ${{ vars.UQ_MAX_REQUESTS_PER_DAY || '3000' }}
+      UQ_HEADED: ${{ vars.UQ_HEADED || '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y xvfb
+
+      - name: Tests
+        run: python -m pytest -q
+
+      - name: List what is already published
+        run: python scripts/published_ids.py
+
+      # Never let a failure here skip the later steps: the health check and the state commit must run.
+      - name: Fetch a batch
+        id: fetch
+        run: |
+          set +e
+          xvfb-run -a python scripts/backfill.py --limit "${{ inputs.limit || '2500' }}" --have build/have.csv --raw-dir build/raw
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Build the batch tables
+        id: build
+        run: |
+          if [ -d build/raw ] && [ -n "$(ls -A build/raw 2>/dev/null)" ]; then
+            python scripts/build_release.py build/raw "" --out build/batch --method live --state state/attempts.jsonl
+            echo "built=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "built=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Health check
+        id: health
+        run: |
+          set +e
+          python scripts/health.py --state state/attempts.jsonl --batch-stats build/batch/stats.json --min-attempts 1
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Publish the batch to Hugging Face (one commit)
+        if: ${{ steps.build.outputs.built == 'true' && env.HF_TOKEN != '' && steps.health.outputs.code == '0' }}
+        run: python scripts/publish_to_hf.py --release build/batch --tag "batch-$(date -u +%Y-%m-%dT%H%M)" --no-card --upload
+
+      - name: Commit the state file
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/attempts.jsonl
+          git diff --cached --quiet || (git commit -m "Record fetch attempts [skip ci]" && git push)
+
+      # Turn every kind of trouble into a red run.
+      - name: Fail loudly
+        if: ${{ always() }}
+        run: |
+          fetch=${{ steps.fetch.outputs.code }}
+          health=${{ steps.health.outputs.code }}
+          if [ "$fetch" = "3" ]; then echo "The site refused a request. Stopped. Read HANDOFF.md before running again."; exit 3; fi
+          if [ "$fetch" = "4" ]; then echo "Nothing came back that looks like a questionnaire. The fetch method needs attention."; exit 4; fi
+          if [ "$fetch" != "0" ]; then echo "backfill.py exited $fetch"; exit "$fetch"; fi
+          if [ "$health" != "0" ]; then echo "The health check found a problem."; exit 1; fi
+          if [ -z "$HF_TOKEN" ]; then echo "HF_TOKEN is not set: nothing was published."; exit 1; fi

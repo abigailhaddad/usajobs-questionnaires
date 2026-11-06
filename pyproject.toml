@@ -1,0 +1,13 @@
+[project]
+name = "usajobs-questionnaires"
+version = "0.1.0"
+description = "Every USAJOBS questionnaire we can recover, parsed into questions"
+requires-python = ">=3.10"
+dependencies = ["duckdb", "pandas", "pyarrow", "huggingface_hub", "requests", "playwright"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
