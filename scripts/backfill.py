@@ -5,7 +5,8 @@
     python3 scripts/backfill.py --limit 2500                                               # one day's batch
     python3 scripts/backfill.py --dry-run                                                  # show what it would do
 
-Picks ids from data/id_inventory.parquet, newest first, skips any id the state file already
+Picks ids from data/id_inventory.parquet (announcements first seen in config.MIN_YEAR, 2025, or later,
+unless --years says otherwise), newest first, skips any id the state file already
 settled and any id listed in --have (a file with one "portal,id" per line, or a folder of
 usastaffing_<id>.txt / monster_<id>.txt files). Stops at once on any refusal (exit code 3).
 """
@@ -54,7 +55,10 @@ def pick(args, state):
         if args.portal != "all" and r.portal != args.portal:
             continue
         year = r.first_seen_month[:4]
-        if args.years and year not in args.years:
+        if args.years:
+            if year not in args.years:
+                continue
+        elif int(year) < config.MIN_YEAR:
             continue
         rows.append((year, r.first_seen_month, r.portal, r.questionnaire_id, r.url))
     # newest first, then spread by year when asked

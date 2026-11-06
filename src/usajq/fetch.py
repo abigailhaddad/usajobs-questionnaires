@@ -32,6 +32,18 @@ NOT_FOUND_MARKERS = (
     "questionnaire not found", "no longer available", "does not exist", "invalid questionnaire",
     "page not found", "404 - page not found",
 )
+# The page first shows a skeleton: the labels ("Position Title", "Agency", ...) with "Loading..." under
+# them, about 220 characters. Waiting for a label is not enough. The content has arrived when "Loading..."
+# is gone, the page has real text, and the header fields (position title and so on) have values, or when
+# the app has put up one of its own error messages. The header can fill in a moment after the questions.
+# A page that never gets header values simply waits out the timeout and is read as it is.
+RENDERED_JS = (
+    "document.body && (function(){var t=document.body.innerText||'';"
+    "if(/captcha|access denied|unusual traffic|verify you are/i.test(t))return true;"
+    "if(/encountered an error|not found|no longer available/i.test(t))return true;"
+    "var head=/Position Title\\s+(?!Agency\\b)\\S/.test(t);"
+    "return t.indexOf('Loading...')===-1 && t.length>600 && head;})()"
+)
 EXIT_BLOCKED = 3
 EXIT_NO_CONTENT = 4
 # A run whose first attempts all come back without any questionnaire is not working. Stop and look.
@@ -93,6 +105,10 @@ def classify_text(status, text):
         return "ok", ""
     if any(m in low for m in NOT_FOUND_MARKERS):
         return "not_found", "page says not found"
+    if "has encountered an error" in low:
+        return "error", "app error page"  # retried once by State.done, then left
+    if "loading..." in low:
+        return "error", "page still loading when read"
     return "error", "no questionnaire content"
 
 
@@ -180,9 +196,7 @@ async def fetch_usastaffing(items, raw_dir: Path, state: State, workers=None, de
                     status = resp.status if resp else None
                     if status == 200:
                         try:
-                            await page.wait_for_function(
-                                "document.body && /Position Title|not found|Access Denied|captcha/i.test(document.body.innerText)",
-                                timeout=20000)
+                            await page.wait_for_function(RENDERED_JS, timeout=config.RENDER_WAIT_MS)
                         except Exception:
                             pass
                     text = await page.inner_text("body", timeout=10000)

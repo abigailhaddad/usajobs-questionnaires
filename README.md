@@ -5,16 +5,21 @@ preference, conditions-of-employment and assessment questions an applicant answe
 rated. They live on USA Staffing (`apply.usastaffing.gov/ViewQuestionnaire/<id>`) and Monster preview
 pages, and they carry no applicant answers.
 
-The published dataset is `abigailhaddad/usajobs-questionnaires` on Hugging Face (not published yet).
-The first release is the 2025 collection: 52,227 questionnaires, 949,370 questions. The rest is a backfill.
+The published dataset is `abigailhaddad/usajobs-questionnaires` on Hugging Face. The first release is the
+2025 collection: 52,227 questionnaires, 949,370 questions, with email addresses removed. Scope is 2025 to
+present. The remaining 2025 and 2026 questionnaires are collected in daily batches. Earlier years are not
+planned (see HANDOFF.md for why).
 
 ## Where it stands
 
 - **Parser:** done and checked. See `evidence/` and the dataset card.
-- **2025 release:** built locally, dry run passes, not uploaded.
+- **2025 release:** published.
 - **Inventory:** 2.3 million questionnaire ids found in announcement text, 2017 to 2026, in
-  `data/id_inventory.parquet`. 2.27 million of the USA Staffing ones are not collected yet.
-- **Backfill:** a 40-request pilot returned no questionnaire (see HANDOFF.md). It is not scheduled.
+  `data/id_inventory.parquet`. In scope: about 251,000 USA Staffing ids from 2025 and 2026 that are not
+  collected yet, about 84 days at the polite budget.
+- **Fetching:** works. The first pilot failed because the fetcher read the page while it was still
+  loading; that is fixed (HANDOFF.md, "The fetch method"). A 300-id batch returned 300 questionnaires.
+  It is built and has a passing publish dry run, not uploaded. The daily workflow is not scheduled.
 
 ## Layout
 
@@ -47,7 +52,7 @@ The first release is the 2025 collection: 52,227 questionnaires, 949,370 questio
     python scripts/publish_to_hf.py --upload         # needs HF_TOKEN or a cached login
 
     # fetch (small, polite, resumable)
-    python scripts/backfill.py --limit 40 --per-year 8 --years 2018 2020 2022 2023 2024 --dry-run
+    python scripts/backfill.py --limit 300 --years 2026 2025 --per-year 150 --have data/collected_ids_2025_release.csv --dry-run
 
 `backfill.py` exits 3 if the site refuses a request and 4 if nothing that looks like a questionnaire
 comes back. Either way it stops. Read HANDOFF.md before running it again.

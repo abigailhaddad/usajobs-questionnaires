@@ -1,7 +1,10 @@
 name: Backfill questionnaires
 
-# NOT SCHEDULED YET. The pilot (see HANDOFF.md) must show that the fetch method works before this
-# runs on a timer. Run it by hand first. To schedule it, uncomment the `schedule` block.
+# NOT SCHEDULED YET, but the fetch method works: a 300-id batch returned 300 questionnaires (HANDOFF.md,
+# "The fetch method"). Scope is 2025 to present (config.MIN_YEAR). Run it by hand once, check that the
+# run is green and a batch lands on Hugging Face, then uncomment the `schedule` block. The daily budget
+# (3,000 requests, about 3 hours 20 minutes of fetching) takes about 84 days to clear the 2025 and 2026
+# backlog; after that a day's new announcements are about 630 ids.
 on:
   workflow_dispatch:
     inputs:

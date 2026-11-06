@@ -3,40 +3,56 @@
 For whoever keeps this going. It does three jobs: list the questionnaire ids, fetch the pages, and
 publish them as a dataset.
 
+## Scope
+
+**2025 to present.** The dataset covers questionnaires from announcements first seen in 2025 or later
+(`config.MIN_YEAR`, override with `UQ_MIN_YEAR`). Earlier years are not planned. An earlier scouting pass
+counted about 2.0 million USA Staffing ids from 2017 to 2024 that are not collected. At the polite budget
+that is about 673 days of fetching, the announcement text links only 62% to 81% of questionnaires, Monster
+links stop appearing in announcement text after 2018, and agency-run portals block automation. If someone
+wants to go back, `scripts/backfill.py --years 2023` fetches one year, and the same method renders pages from
+2019 to 2024 (see "The fetch method").
+
 ## What exists
 
 | Piece | State |
 |---|---|
 | Parser (USA Staffing pages to questions) | Done, tested, checked against 49,868 real pages |
-| 2025 release (52,227 questionnaires, 949,370 questions) | Built in `build/release`, dry run passes, **not uploaded** |
+| 2025 release (52,227 questionnaires, 949,370 questions) | Published at `abigailhaddad/usajobs-questionnaires`, emails removed |
 | Id inventory | Done: 2,337,708 ids from the announcement dataset |
-| Fetching | **Not working yet.** See "The pilot" |
-| Backfill workflow | Written, not scheduled, never run |
+| Fetching 2025-26 pages | Works (see "The fetch method") |
+| Backfill workflow | Written, not scheduled |
 
-## The pilot
+## The fetch method
 
-I fetched 40 pre-2025 USA Staffing pages: 8 spread across each of 2018, 2020, 2022, 2023 and 2024,
-with 2 workers and 4 to 9 seconds between requests. All 40 came back HTTP 200 with 222 characters of
-text and no questionnaire. None was a 403, a 429 or a captcha page. I did not save the text, so I
-cannot say what the 222 characters were. The pilot was capped at 40 requests, so I stopped there.
+USA Staffing pages are a JavaScript app. A plain request returns a 2,115-byte shell, so the fetcher loads
+each page in Playwright's own headless Chromium with its default flags and user agent: no stealth plugins,
+no header changes, nothing that hides automation.
 
-What I know and don't:
+**What went wrong in the first pilot, and the fix.** The first pilot fetched 40 pre-2025 ids and every
+one came back as 222 characters. That text was the page's loading skeleton: the labels "Position Title",
+"Agency" and "Announcement Number" with "Loading..." under them. The fetcher waited until the words
+"Position Title" appeared, and the skeleton already contains them, so it read the page too early. It now
+waits until "Loading..." is gone and the page has real text (up to 30 seconds, `UQ_RENDER_WAIT_MS`), or
+until the app shows its own error message. Browser flags and the user agent had nothing to do with it.
 
-- The pages are a JavaScript app. A plain request returns a 2,115-byte shell (found in the earlier
-  scouting), so a browser is required.
-- Two earlier checks by the scouting agent, in a different browser setup, did show a full questionnaire
-  with no login (a 2019 and a 2021 id), so old questionnaires do persist. I did not repeat that.
-- This code uses Playwright's own headless Chromium with its default flags and user agent. The
-  collection that produced the 2025 pages used a Chrome user agent and launch flags that hide
-  automation. I did not copy those. Whether that difference is the cause is unverified.
+**Checks of the fix.** 10 of 10 ids first seen in 2025 H2 and 2026 rendered in plain headless Chromium, with
+full text in 1 to 4 seconds. Of 10 ids first seen in 2019 to 2024, 9 rendered, so old questionnaires persist;
+one 2019 id returned USA Staffing's own "has encountered an Error" page. The fixed fetcher then got 3 of 3
+on new ids.
 
-The fetcher now saves a 300-character snippet of every page that is not a questionnaire (the `snippet`
-field in `state/attempts.jsonl`), and stops the run after 8 attempts if none has worked (exit code 4).
+**The first batch (2026-11-06).** 300 ids, 150 first seen in 2025 and 150 in 2026, spread across the year.
+300 of 300 returned a questionnaire (no `not_found`, `error` or `blocked`), in 19 minutes 46 seconds with
+2 workers and 4 to 9 seconds between requests: about 15 a minute, 910 an hour. 290 parsed `ok` and 10
+parsed `ok_missing_header`: the labels were there but the position title, agency and announcement number
+were blank, because the page body finishes a moment before the header values. The wait now also requires
+the header values. I re-fetched those 10 ids and all 10 came back with headers, so the batch is 300 `ok`.
+Nine pages had an email address, now `[email removed]`. The batch built 300 questionnaires, 5,982 questions
+and 877 sections, none of its ids were already published, and the publish dry run passes.
 
-**First thing to do:** run 5 or so ids in a visible browser (`UQ_HEADED=1`, on a machine with a display)
-and read the snippets. If a visible browser works and headless does not, the site treats headless
-Chromium differently. Whether to work around that is a decision for the owner, and the portals' terms
-of use are worth reading first (I did not find them).
+The fetcher saves a 300-character snippet of any page that is not a questionnaire (the `snippet` field in
+`state/attempts.jsonl`), classifies the app's error page as `error` (retried once, then left), and stops
+after 8 attempts if none has worked (exit code 4).
 
 ## Rules the fetcher follows
 
@@ -45,11 +61,13 @@ of use are worth reading first (I did not find them).
   `not_found`. An `error` is retried once more. A `blocked` is never marked done.
 - Budget: 3,000 requests a day, 2 workers, 4 to 9 seconds between requests (`config.py`; override
   with `UQ_MAX_REQUESTS_PER_DAY`, `UQ_WORKERS`, `UQ_DELAY_MIN`, `UQ_DELAY_MAX`).
-- At that budget the 2.27 million uncollected USA Staffing ids take about 757 days. Of those,
-  2.02 million are from 2017 to 2024 (about 673 days). Faster means more load on the site.
-  The scouting agent read, in Protect Democracy's notes for a similar project, that USA Staffing refused
-  a runner after about 1,700 requests at 4 workers. I have not verified that or tested what this
-  project tolerates.
+- At that budget the remaining 2025 and 2026 ids (about 251,000: 83,006 from 2025 and 168,473 from 2026)
+  take about 84 days. The measured rate is about 910 pages an hour, so a 3,000-request day is about
+  3 hours 20 minutes of fetching. New announcements add about 19,000 ids a month, so keeping up with
+  them is about 630 a day, about 42 minutes. Faster means more load on the site. The scouting agent
+  read, in Protect Democracy's notes for a similar project, that USA Staffing refused a runner after about
+  1,700 requests at 4 workers. I have not verified that or tested what this project tolerates (the batch
+  above was 300 requests).
 
 ## What the inventory is
 
@@ -99,16 +117,27 @@ attempt today was an error, or if fewer than 90% of a batch's pages parsed (a la
 Each batch adds files (`data/<table>/part-<tag>.parquet`) and never rewrites old ones. The publisher
 refuses a batch whose ids are already published.
 
-## Publishing the 2025 release
+## Publishing
 
-1. Read `build/release/README.md` (regenerate with `python scripts/make_card.py`).
-2. `python scripts/publish_to_hf.py` (dry run, writes nothing).
-3. `python scripts/publish_to_hf.py --upload` (one commit, creates the public dataset).
-4. Create the GitHub repo and replace "(to be created)" in the card with the link.
+The 2025 release is published (one commit, `data/<table>/part-2025-release.parquet`). Each batch adds
+`part-<tag>.parquet` files and never rewrites old ones:
+
+1. `python scripts/published_ids.py` (writes `build/have.csv`).
+2. `python scripts/backfill.py --limit 2500 --have build/have.csv --raw-dir build/raw`
+3. `python scripts/build_release.py build/raw "" --out build/batch --method live --state state/attempts.jsonl`
+4. `python scripts/publish_to_hf.py --release build/batch --tag batch-<date> --no-card` (dry run),
+   then the same with `--upload`.
+
+The first batch (300 questionnaires, `build/batch-2026-11-06/out`) is built and has a passing dry run.
+It has not been uploaded. The GitHub repo for this project does not exist yet; the card still says
+"(to be created)".
+
+Email addresses are replaced with `[email removed]` before parsing (`src/usajq/redact.py`), so
+`text_sha256` is the hash of the text after removal.
 
 ## Tests and checks
 
-`python -m pytest -q` (31 tests, no network). `python scripts/verify_parse.py RAW_DIR` re-checks the
+`python -m pytest -q` (39 tests, no network). `python scripts/verify_parse.py RAW_DIR` re-checks the
 parser against raw pages: every body line must be found again in some parsed field, and numbered
 lines must account for the question count. `evidence/parse_verify.json` lists the 46 files (0.09%)
 where a numbered line is ambiguous.
