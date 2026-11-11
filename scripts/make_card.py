@@ -126,6 +126,8 @@ covered. Neither are announcements that never linked a questionnaire.
 ## Tables
 
 Each table is a folder of Parquet files, one per release or batch (`part-<tag>.parquet`).
+`explorer/questionnaires.parquet` is a single-file copy of `data/questionnaires/` without `raw_text`,
+rebuilt after each batch for the dataset explorer. Use the `data/` folders for analysis.
 
 `data/questions/`, {nq:,} rows across the files there. One row per question.
 
