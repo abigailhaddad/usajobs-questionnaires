@@ -85,8 +85,16 @@ jobs:
           exit 0
 
       - name: Publish the batch to Hugging Face (one commit)
+        id: publish
         if: ${{ steps.build.outputs.built == 'true' && env.HF_TOKEN != '' && steps.health.outputs.code == '0' }}
         run: python scripts/publish_to_hf.py --release build/batch --tag "batch-$(date -u +%Y-%m-%dT%H%M)" --no-card --upload
+
+      # The dataset explorer reads one small file (explorer/questionnaires.parquet) instead of every part file.
+      # Rebuild it from the published parts so it includes today's batch. If this fails the run goes red and
+      # the explorer shows yesterday's rows until the next run.
+      - name: Rebuild the explorer copy
+        if: ${{ steps.publish.outcome == 'success' }}
+        run: python scripts/build_explorer_file.py --upload
 
       - name: Commit the state file
         if: always()
