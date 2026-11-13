@@ -14,6 +14,7 @@ outside data/ so the dataset viewer and `load_dataset` don't see it.
 import argparse
 import os
 import sys
+import time
 from pathlib import Path
 
 import duckdb
@@ -91,13 +92,36 @@ def main():
     if not args.upload:
         print(f"dry run: wrote {out}; nothing uploaded (add --upload)")
         return 0
-    api.create_commit(
-        repo_id=config.HF_DATASET, repo_type="dataset",
-        operations=[CommitOperationAdd(path_in_repo=DEST, path_or_fileobj=str(out))],
-        commit_message=f"Explorer copy of questionnaires: {facts['rows']:,} rows from {facts['parts']} part files",
+    commit_with_retry(
+        api,
+        lambda: [CommitOperationAdd(path_in_repo=DEST, path_or_fileobj=str(out))],
+        f"Explorer copy of questionnaires: {facts['rows']:,} rows from {facts['parts']} part files",
     )
     print(f"committed {DEST}")
     return 0
+
+
+# On 2026-11-12 the Hub rejected this commit with "an LFS pointer pointed to a file that does not exist",
+# about 0.2 seconds after hf_xet reported the upload finished (run 43246945240). The same code path had
+# committed the day's batch seconds earlier. A rejected commit writes nothing, and this file is a whole-file
+# replacement rebuilt from the parts, so trying again (with fresh operations, so the file is uploaded again)
+# is safe. Any other error, or the same error after the last try, still fails the run.
+RETRY_WAITS = (10, 30, 90)
+
+
+def commit_with_retry(api, make_operations, message, waits=RETRY_WAITS, sleep=time.sleep):
+    from huggingface_hub.errors import BadRequestError
+
+    for i in range(len(waits) + 1):
+        try:
+            return api.create_commit(repo_id=config.HF_DATASET, repo_type="dataset",
+                                     operations=make_operations(), commit_message=message)
+        except BadRequestError as e:
+            if "LFS pointer" not in str(e) or i == len(waits):
+                raise
+            print(f"commit rejected ({e.__class__.__name__}: LFS pointer to a missing file); "
+                  f"trying again in {waits[i]}s ({i + 1} of {len(waits)})", flush=True)
+            sleep(waits[i])
 
 
 if __name__ == "__main__":
